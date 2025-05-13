@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('course', function (Blueprint $table) {
+        Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('course_number');
             $table->string('day');
@@ -24,11 +24,11 @@ return new class extends Migration
             //referenciando la tabla users
              $table->foreign('area_id')
                  ->references('id')
-                 ->on('area')->onDelete('set null');
+                 ->on('areas')->onDelete('set null');
              //referenciando la tabla categorias
              $table->foreign('training_center_id')
              ->references('id')
-             ->on('training_center')->onDelete('set null');
+             ->on('training_centers')->onDelete('set null');
 
              $table->timestamps();
 
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('course');
+        Schema::dropIfExists('courses');
     }
 };

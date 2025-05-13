@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('aprendice', function (Blueprint $table) {
+        Schema::create('aprendices', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -26,11 +26,11 @@ return new class extends Migration
            //referenciando la tabla users
             $table->foreign('course_id')
                 ->references('id')
-                ->on('course')->onDelete('set null');
+                ->on('courses')->onDelete('set null');
             //referenciando la tabla categorias
             $table->foreign('computer_id')
             ->references('id')
-            ->on('computer')->onDelete('set null');
+            ->on('computers')->onDelete('set null');
 
             $table->timestamps();
         });
@@ -41,6 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('aprendice');
+        Schema::dropIfExists('aprendices');
     }
 };

@@ -21,7 +21,7 @@ class AreaController extends Controller
         $area = new Area();
         $area->name=$request->name;
         $area->save();
-        return $area;
+        return redirect()->route('area.index');
 
     }
 }

@@ -2,22 +2,22 @@
 
 @section('content')
     <div class="container mt-4">
-        <h1 class="mb-4">Lista de training center</h1>
+        <h1 class="mb-4">Lista de teacher</h1>
 
-        <a href="{{ route('training.create') }}" class="btn btn-warning btn-sm mb-4">crear</a>
+        <a href="{{ route('teacher.create') }}" class="btn btn-warning btn-sm mb-4">crear</a>
 
         <table class="table table-bordered table-striped">
             <thead class="table-dark">
                 <tr>
                     <th>Name</th>
-                    <th>Location</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($trainings as $training)
+                @foreach ($teachers as $teacher)
                     <tr>
-                        <td>{{ $training['name'] }}</td>
-                        <td>{{ $training['location'] }}</td>
+                        <td>{{ $teacher['name'] }}</td>
+                        <td>{{ $teacher['email'] }}</td>
                     </tr>
                 @endforeach
             </tbody>

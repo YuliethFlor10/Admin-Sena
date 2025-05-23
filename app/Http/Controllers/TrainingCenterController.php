@@ -22,7 +22,7 @@ class TrainingCenterController extends Controller
         $training->name=$request->name;
         $training->location=$request->location;
         $training->save();
-        return $training;
+        return redirect()->route('training.index');
 
     }
 }

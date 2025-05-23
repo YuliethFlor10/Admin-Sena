@@ -8,11 +8,11 @@ use App\Models\Computer;
 class ComputerController extends Controller
 {
     public function index(){
-        $computer = Computer::all();
+        $computers = Computer::all();
 
         return view('computer.index', compact('computers'));
     }
-    
+
 
     public function create(){
         return view('computer.create');
@@ -23,7 +23,7 @@ class ComputerController extends Controller
         $computer->number=$request->Number;
         $computer->brand=$request->Brand;
         $computer->save();
-        return $computer;
+        return redirect()->route('computer.index');
 
 
     }

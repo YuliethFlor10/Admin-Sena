@@ -25,7 +25,39 @@ class AprendiceController extends Controller
         $aprendice->email=$request->email;
         $aprendice->save();
         return redirect()->route('aprendice.index');
-
-
     }
+
+    public function show($id)
+    {
+        $aprendice = Aprendice::find($id);
+
+        return view('aprendice.show', compact('aprendice'));
+    }
+
+     //Destroy
+     public function destroy (Aprendice $aprendice){
+
+        $aprendice->delete();
+
+        return redirect()->route('aprendice.index');
+    }
+
+      public function edit(Aprendice $aprendice){
+
+        return view('aprendice.edit',compact('aprendice'));
+
+      }
+
+     //Update
+    public function update(Request $request, Aprendice $aprendice){
+
+        $aprendice->name = $request->name;
+        $aprendice->email = $request->email;
+        $aprendice->cell_number = $request->cell_number;
+        $aprendice->save();
+
+        return redirect()->route('aprendice.index');
+
+      }
+
 }

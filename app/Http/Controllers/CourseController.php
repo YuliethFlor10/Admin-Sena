@@ -25,6 +25,36 @@ class CourseController extends Controller
         $course->save();
         return redirect()->route('course.index');
 
-
     }
+    public function show($id)
+    {
+        $course = Course::find($id);
+
+        return view('course.show', compact('course'));
+    }
+
+    //Destroy
+     public function destroy (Course $course){
+
+        $course->delete();
+
+        return redirect()->route('course.index');
+    }
+
+      public function edit(Course $course){
+
+        return view('course.edit',compact('course'));
+
+      }
+
+     //Update
+    public function update(Request $request, Course $course){
+
+        $course->course_number = $request->course_number;
+        $course->day = $request->day;
+        $course->save();
+
+        return redirect()->route('course.index');
+
+      }
 }

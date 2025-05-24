@@ -10,13 +10,13 @@
 
         <label for="title">Number:</label>
 
-        <input type="number" id="Number" name="Number" >
+        <input type="number" id="number" name="number" >
 
         <br><br>
 
         <label for="title">Brand:</label>
 
-        <input type="text" id="Brand" name="Brand" >
+        <input type="text" id="brand" name="brand" >
 <br><br>
 
     <button type="submit" class="btn btn-outline-success mb-4 ">Crear</button>

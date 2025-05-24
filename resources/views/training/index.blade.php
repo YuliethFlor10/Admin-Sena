@@ -2,29 +2,29 @@
 
 @section('content')
     <div class="container mt-4">
-        <h1 class="mb-4">Lista de course</h1>
+        <h1 class="mb-4">Lista de training center</h1>
 
-        <a href="{{ route('course.create') }}" class="btn btn-warning btn-sm mb-4">Crear</a>
+        <a href="{{ route('training.create') }}" class="btn btn-warning btn-sm mb-4">Crear</a>
 
         <table class="table table-bordered table-striped">
             <thead class="table-dark">
                 <tr>
-                    <th>Course number</th>
-                    <th>Day</th>
+                    <th>Name</th>
+                    <th>Location</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($courses as $course)
+                @foreach ($trainings as $training)
                     <tr>
-                        <td>{{ $course['course_number'] }}</td>
-                        <td>{{ $course['date'] }}</td>
+                        <td>{{ $training['name'] }}</td>
+                        <td>{{ $training['location'] }}</td>
 
-                         <td>
-                            <a href="{{ route('course.show', $course['id']) }}" class="btn btn-info btn-sm">Ver más</a>
-                        </td>
-                        <td><a href="{{ route('course.edit', $course->id) }}"class="btn btn-success btn-sm">Editar</a></td>
                         <td>
-                        <form action="{{ route('course.destroy', $course->id) }}" method="POST">
+                            <a href="{{ route('training.show', $training['id']) }}" class="btn btn-info btn-sm">Ver más</a>
+                        </td>
+                        <td><a href="{{ route('training.edit', $training->id) }}"class="btn btn-success btn-sm">Editar</a></td>
+                        <td>
+                        <form action="{{ route('training.destroy', $training->id) }}" method="POST">
                             @csrf
                             @method('delete')
                             <button type="submit" class="btn btn-danger d-flex align-items-center gap-2">
